@@ -1,4 +1,4 @@
-from robot import robot
+from src.robot import Robot
 from math import *
 import random
 import numpy as np
@@ -64,7 +64,7 @@ def make_data(N, num_landmarks, world_size, measurement_range, motion_noise,
         data = []
 
         # make robot and landmarks
-        r = robot(world_size, measurement_range, motion_noise, measurement_noise)
+        r = Robot(world_size, measurement_range, motion_noise, measurement_noise)
         r.make_landmarks(num_landmarks)
         seen = [False for row in range(num_landmarks)]
     
