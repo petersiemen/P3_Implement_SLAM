@@ -1,4 +1,4 @@
-from robot_class import robot
+from robot import robot
 from math import *
 import random
 import numpy as np
