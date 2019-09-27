@@ -67,7 +67,7 @@ class Robot:
     
     ## TODO: paste your complete the sense function, here
     ## make sure the indentation of the code is correct
-    def sense(self):
+    def  sense(self):
         ''' This function does not take in any parameters, instead it references internal variables
             (such as self.landamrks) to measure the distance between the robot and any landmarks
             that the robot can see (that are within its measurement range).
@@ -80,7 +80,12 @@ class Robot:
         measurements = []
         
         ## TODO: iterate through all of the landmarks in a world
-        
+        for i, (x, y) in enumerate(self.landmarks):
+            dx = x - self.x + self.measurement_noise
+            dy = y - self.y + self.measurement_noise
+            if abs(dx) <= self.measurement_range and abs(dy) <= self.measurement_range:
+                measurements.append([i, dx, dy])
+
         ## TODO: For each landmark
         ## 1. compute dx and dy, the distances between the robot and the landmark
         ## 2. account for measurement noise by *adding* a noise component to dx and dy
