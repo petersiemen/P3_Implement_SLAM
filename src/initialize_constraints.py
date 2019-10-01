@@ -9,23 +9,21 @@ def initialize_constraints(N, num_landmarks, world_size):
 
     ## TODO: Define the constraint matrix, Omega, with two initial "strength" values
     ## for the initial x, y location of our robot
-    rows = 2 * (N + num_landmarks)
-    cols = rows
-
+    rows = cols = 2 * (N + num_landmarks)
     omega = np.zeros((rows, cols))
 
     ## TODO: Define the constraint *vector*, xi
     ## you can assume that the robot starts out in the middle of the world with 100% confidence
     xi = np.zeros((rows, 1))
 
-    x0 = 0
-    y0 = 1
+    x_0 = 0
+    y_0 = 1
     start_x = world_size / 2.
     start_y = world_size / 2.
 
-    omega[x0][x0] = 1
-    omega[y0][y0] = 1
-    xi[x0][0] = start_x
-    xi[y0][0] = start_y
+    omega[x_0, x_0] = 1
+    omega[y_0, y_0] = 1
+    xi[x_0] = start_x
+    xi[y_0] = start_y
 
     return omega, xi
